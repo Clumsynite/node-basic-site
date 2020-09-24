@@ -5,7 +5,7 @@ const fs = require('fs')
 http.createServer((req, res) => {
   const q = url.parse(req.url, true)
   const filename = q.pathname !== '/' ? `${q.pathname}` : `index`
-  fs.readFile(`.${filename}.html`, (err, data) => {
+  fs.readFile(`./${filename}.html`, (err, data) => {
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'})
       return res.end('<h1>404 not found</h1>')
